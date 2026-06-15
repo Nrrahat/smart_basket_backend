@@ -4,6 +4,10 @@ from datetime import datetime
 from sqlalchemy import ForeignKey, Numeric, Enum, DateTime
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from database.base import Base
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from models.order import Order  # Avoid circular imports at runtime
 
 class BillStatus(str, enum.Enum):
     PENDING = "pending"

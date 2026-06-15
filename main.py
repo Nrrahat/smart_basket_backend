@@ -26,9 +26,11 @@ app = FastAPI(
 # Register your product API routes
 from api.product_route import router as product_router
 from api.order_route import router as order_router
+from api.payment_route import router as payment_router
 
 app.include_router(product_router)
 app.include_router(order_router)
+app.include_router(payment_router)
 
 
 @app.get("/")
