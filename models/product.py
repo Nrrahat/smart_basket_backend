@@ -12,6 +12,7 @@ class Product(Base):
     Inherits 'id', 'created_at', and 'updated_at' from Base.
     The table name will automatically be set to 'product'.
     """
+    __tablename__ = "products"
 
     # RFID unique identifier (indexed for fast scanning lookups, optional if items aren't tagged yet)
     rfid_uid: Mapped[Optional[str]] = mapped_column(

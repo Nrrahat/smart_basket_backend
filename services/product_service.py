@@ -43,5 +43,6 @@ class ProductService:
 
         new_product = Product(**product_data.model_dump())
         db.add(new_product)
-        await db.flush()  # Populates id and timestamps fields
+        await db.commit()  # Permanently write the record to the session
+        await db.refresh(new_product) 
         return new_product

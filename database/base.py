@@ -1,6 +1,8 @@
 from datetime import datetime, timezone
 from sqlalchemy import DateTime
 from sqlalchemy.orm import DeclarativeBase, Mapped, declared_attr, mapped_column
+#from models.product import Product
+#from models.order import Order, OrderItem
 
 
 class Base(DeclarativeBase):
