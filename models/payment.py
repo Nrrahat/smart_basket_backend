@@ -4,6 +4,7 @@ from datetime import datetime
 from sqlalchemy import ForeignKey, Numeric, Enum, DateTime
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from database.base import Base
+from decimal import Decimal
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -19,7 +20,7 @@ class Bill(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True, index=True)
     order_id: Mapped[int] = mapped_column(ForeignKey("orders.id"), nullable=False)
-    total_price: Mapped[float] = mapped_column(Numeric(10, 2), nullable=False)
+    total_price: Mapped[Decimal] = mapped_column(Numeric(10, 2), nullable=False)
     status: Mapped[BillStatus] = mapped_column(Enum(BillStatus), default=BillStatus.PENDING, nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, nullable=False)
 
